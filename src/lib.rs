@@ -49,16 +49,16 @@ pub fn derive_all_variants(input: TokenStream) -> TokenStream {
 }
 
 fn error_all_variants_only_for_enums(spanned: impl Spanned) -> TokenStream {
-    return syn::Error::new(spanned.span(), "AllVariants can only be derived on enums")
+    syn::Error::new(spanned.span(), "AllVariants can only be derived on enums")
         .into_compile_error()
-        .into();
+        .into()
 }
 
 fn error_only_unit_fields(spanned: impl Spanned) -> TokenStream {
-    return syn::Error::new(
+    syn::Error::new(
         spanned.span(),
         "AllVariants can only be derived on enums with only unit (primitive) variants",
     )
     .into_compile_error()
-    .into();
+    .into()
 }
